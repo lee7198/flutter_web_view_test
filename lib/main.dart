@@ -29,7 +29,7 @@ class _WebViewAppState extends State<WebViewApp> {
     super.initState();
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse('https://www.awesomegreat.kro.kr/'),
+        Uri.parse('http://localhost:5174/'),
       );
   }
 
