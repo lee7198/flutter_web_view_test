@@ -23,13 +23,21 @@ class WebViewApp extends StatefulWidget {
 
 class _WebViewAppState extends State<WebViewApp> {
   late final WebViewController controller;
+  _getBgColorByTheme() {
+    final ThemeData theme = Theme.of(context);
+    if (theme.brightness == Brightness.light) {
+      return const Color(0xffffffff);
+    } else {
+      return const Color(0xff262626);
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse('http://localhost:5174/'),
+        Uri.parse('https://www.wooyeons.site/'),
       );
   }
 
@@ -39,7 +47,7 @@ class _WebViewAppState extends State<WebViewApp> {
       appBar: PreferredSize(
           preferredSize: const Size.fromHeight(0), //height of appbar
           child: AppBar(
-              backgroundColor: const Color(0xffe8ece0) //appbar background color
+              backgroundColor: _getBgColorByTheme() //appbar background color
               )),
       body: WebViewWidget(
         controller: controller,
